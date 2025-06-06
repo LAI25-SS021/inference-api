@@ -4,18 +4,17 @@ from io import BytesIO
 import tensorflow as tf
 import numpy as np
 
-from utils.custom_metrics import f1_m
 from utils.format_output import format_image_pred
 
 model = None
 IMAGE_WIDTH = 224
 IMAGE_HEIGHT = 224
 IMAGE_CHANNELS = 3
-CLASSES = ['Acne', 'Blackhead', 'Redness']
+CLASSES = ['Oily', 'Acne', 'Normal']
 
 def load_model():
-    path = 'model'
-    model = tf.keras.models.load_model(path, custom_objects={'f1_m': f1_m})
+    path = 'mobilenetv2.keras'
+    model = tf.keras.models.load_model(path)
     return model
 
 def read_image(image_encoded):
