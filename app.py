@@ -8,17 +8,19 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.get('/')
-def hello_world():
-    return {'message': 'API Running'}
 
-@app.post('/predict')
+@app.get("/")
+def hello_world():
+    return {"message": "API Running"}
+
+
+@app.post("/predict")
 async def predict_image(file: UploadFile = File(...)):
     extension = file.filename.split(".")[-1] in ("jpg", "jpeg", "png")
     if not extension:
@@ -31,11 +33,11 @@ async def predict_image(file: UploadFile = File(...)):
     prediction = predict(image)
 
     response = {}
-    response['status'] = 'success'
-    response['message'] = 'Predict success'
-    response['data'] = prediction
+    response["status"] = "success"
+    response["message"] = "Predict success"
+    response["data"] = prediction
     return response
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, port=5000, host='localhost')
+    uvicorn.run(app, port=5000, host="localhost")

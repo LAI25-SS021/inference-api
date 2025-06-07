@@ -10,16 +10,19 @@ model = None
 IMAGE_WIDTH = 224
 IMAGE_HEIGHT = 224
 IMAGE_CHANNELS = 3
-CLASSES = ['Oily', 'Acne', 'Normal']
+CLASSES = ["Berminyak", "Kering", "Normal"]
+
 
 def load_model():
-    path = 'mobilenetv2.keras'
+    path = "mobilenetv2.keras"
     model = tf.keras.models.load_model(path)
     return model
+
 
 def read_image(image_encoded):
     pil_image = Image.open(BytesIO(image_encoded))
     return pil_image
+
 
 def predict(image: Image.Image):
     global model
