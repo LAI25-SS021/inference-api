@@ -14,4 +14,4 @@ ENV HOST 0.0.0.0
 
 EXPOSE 8000
 
-CMD ["fastapi", "run", "app.py", "--port", "5000"]
+CMD ["fastapi", "run", "app.py", "--port", "8000"]
