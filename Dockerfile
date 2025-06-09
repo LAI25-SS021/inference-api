@@ -12,6 +12,6 @@ ENV PYTHONUNBUFFERED=1
 
 ENV HOST 0.0.0.0
 
-EXPOSE 5000
+EXPOSE 8000
 
 CMD ["fastapi", "run", "app.py", "--port", "5000"]
