@@ -13,6 +13,6 @@ ENV PYTHONUNBUFFERED=1
 
 ENV HOST 0.0.0.0
 
-EXPOSE 8000
+EXPOSE 8080
 
-CMD ["fastapi", "run", "app.py", "--port", "8000"]
+CMD ["fastapi", "run", "app.py", "--port", "8080"]
